@@ -1,2 +1,2 @@
-# GENAI
-collection of generattive ai projects to keep track of all my learning and advancements.
+# Link Summary Project
+To use it get a groq api key from https://groq.com/ dev console.
