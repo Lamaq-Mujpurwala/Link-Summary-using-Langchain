@@ -8,6 +8,7 @@ from langchain_community.document_loaders import YoutubeLoader , YoutubeAudioLoa
 
 st.title("Youtube and URL to Summary with : Langchain")
 st.subheader("Summarize any URL or Youtube video with a Link!")
+st.subheader("(Small error : Please put the groq api key to proceed.)")
 
 with st.sidebar:
     groq_api_key=st.text_input("Groq API Key",value="",type="password")
