@@ -6,3 +6,4 @@ langchain_groq
 langchain_huggingface
 streamlit
 validators
+youtube_transcript_api
