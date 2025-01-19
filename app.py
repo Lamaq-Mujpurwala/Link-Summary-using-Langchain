@@ -5,14 +5,12 @@ from langchain_groq import ChatGroq
 from langchain.chains.summarize import load_summarize_chain
 from langchain_community.document_loaders import YoutubeLoader , YoutubeAudioLoader , UnstructuredURLLoader
 
+
 st.title("Youtube and URL to Summary with : Langchain")
-st.subheader("Summarize and URL with a Link!")
+st.subheader("Summarize any URL or Youtube video with a Link!")
 
-import os
-from dotenv import load_dotenv
-load_dotenv(r"C:\Users\lamaq\OneDrive\Desktop\GENAI\.env")
-
-groq_api_key = os.getenv("GROQ_API_KEY")
+with st.sidebar:
+    groq_api_key=st.text_input("Groq API Key",value="",type="password")
 
 llm  = ChatGroq(
     api_key=groq_api_key,
@@ -36,7 +34,7 @@ prompt = PromptTemplate(template=prompt_temp, input_variables=['text'])
 url = st.text_input(label="Enter your URL " , label_visibility="collapsed")
 
 if st.button("Summarize"):
-    if not url.strip():
+    if not groq_api_key.strip() or not url.strip():
         st.error("Please enter a URL")
     elif not validators.url(url):
         st.error("Invalid URL")
